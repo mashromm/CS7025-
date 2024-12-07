@@ -1,0 +1,711 @@
+/* pages backgrounds*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.index {
+    font-family: 'Arial', sans-serif;
+    background-image: url('../images/Group1.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keep the background fixed */
+}
+
+.about{
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+}
+
+.blog{
+    background-color: #e0e0e0;
+    background-size: cover;
+    background-position: center;
+}
+
+.shop{
+    background-color: #8e9c92;
+    background-size: cover;
+    background-position: center;
+}
+
+/* navigator*/
+header {
+    position: absolute; /* Make sure the navigation bar is hovering at the top of the page */
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 30px 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Make the navigation bar semi-transparent to blend into the background */
+    z-index: 100;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header ul li {
+    margin: 0 20px;
+}
+
+header ul li a span{
+    border-bottom: 3px solid #ffffff; /* underscores */
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    position: relative; /* Enabling underscores via pseudo-elements */
+}
+
+a::after {
+    content: ''; /*Indicates that this is a pseudo-element with no actual text content, and is only used to decorate */
+    /* No content but with height and width, making the rectangle look like an underline */
+    position: absolute;
+    left: 0;
+    bottom:-2px;/* Control the distance of the underline from the text */
+    width: 100%;/* Proportion of width of underline relative to text */
+    height: 3px; /* Thickness of delineation */
+    background-color: #ffffff; /* Underline color */
+    transform: scaleX(0); /* Initially hide the underline */
+    transition: transform 0.3s ease; /* Smooth underline expansion effect */
+}
+
+a:hover::after {
+    transform: scaleX(1); /* Show underline on mouse hover */
+}
+
+/* issy_z style */
+.logo {
+    font-family: Brush Script MT;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+/* Shopping cart icon style */
+.cart-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../images/Cart 8.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.footer {
+    display: flex;
+    flex-direction: column; /* Arranging content vertically */
+    justify-content: space-between;
+    padding: 50px;
+    color: #ffffff;
+    background-color: #2c3829;
+    height: auto; /* Allows adaptive height based on content */
+}
+
+.footer-1{
+    display:flex;
+    flex-direction: row;
+}
+
+.subscribe-section {
+    width: 30%; /* Adjust left side width to fit form */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin-right:220px;
+}
+
+.subscribe-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.footer .email-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+    border: 2px solid#ffffff;
+    background-color: transparent;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.submit-btn:hover {
+    background-color: #fdffcb;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+.back-to-top-btn {
+    font-size: 14px;
+    color: #ffffff;
+    background-color: transparent; 
+    border: none; 
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.back-to-top-btn:hover {
+    color:#fdffcb;
+    border-radius: 10px;
+}
+.social-section {
+    width: 30%;
+    box-sizing: border-box; /* Make sure the padding doesn't affect the overall width */
+}
+.social-section ul,.module-section ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+.social-section ul li,.module-section ul li{
+    margin: 5px;
+}
+
+.footer-bottom {
+    width: 100%; /* Ensure that the footer-bottom occupies the full width */
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.6); /* Make the navigation bar semi-transparent to blend into the background */
+    color: #ffffff;
+    border-top: 1px solid #ffffff; 
+    padding: 10px 50px; /* Add inner margins to avoid text being too close to the border */
+    box-sizing: border-box; /* Make sure padding is included correctly */
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    margin: 0; /* remove extra margin to ensure a compact layout  */
+}
+
+
+/* index  */
+.hero-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #ffffff; 
+}
+
+.hero-content p.description {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* button */
+.shop-now-btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    font-size: 18px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.shop-now-btn a{
+    color: #000;
+}
+
+.shop-now-btn:hover {
+    background-color: #fdffcb;
+    color: rgb(0, 0, 0);
+}
+  
+
+/* about */
+
+.image-container1, .image-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+/* 初始状态：透明且向下偏移 */
+.gallery-image {
+    height: 200px; /* 固定高度 */
+    width: 100%;
+    object-fit: cover; /* 保持图片比例 */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+/* 当元素进入视口时：完全显示并复位 */
+.gallery-image.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-container2 img, .image-container1 img {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.about h1 {
+    font-size: 72px;
+    font-weight: bold;
+    align-self: center;
+    line-height: 1.8;
+    color: #ffffff; 
+    margin-top: 100px;
+    margin-bottom: 0px;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content:space-around; /* containers space */
+    width: 100%;
+    margin-bottom: 100px;
+    padding:100px;
+}
+
+@media screen and (max-width: 1300px) {
+    .container-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around; /* containers space */
+        width: 100%;
+        margin-bottom: 100px;
+        padding:100px;
+    }
+    }
+
+/* every container */
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* image style */
+.image {
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease-in-out;
+}
+
+/* hover to show text*/
+.text-overlay {
+    flex-direction: column;
+    position: absolute;
+    top: 50%; /* Initial position in the center */
+    left: 0;
+    width: 100%;
+    height: 0; /* Initial height is 0 */
+    background-color: rgb(255, 255, 255);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 1s ease, top 1s ease; /* Adding opacity transition */
+    font-size: 15px;
+    font-weight: bold;
+    padding: 50px;
+    opacity: 0;
+}
+
+
+/* hover */
+.container:hover .text-overlay {
+    opacity: 1;
+    height: 100%; /* Altitude changes to 100% when hovering */
+    top: 0; /* The top position is set to 0, covering the entire image */
+}
+
+.container3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 200px;
+}
+.container3 p{
+    color: #ffffff;
+    font-size: 20px;
+    margin-left:140px;
+    margin-right: 140px;
+    margin-bottom: 80px;
+}
+
+
+/* blog */
+
+.blog-container {
+    position: relative;
+    background-image: url('../images/image1.png'); 
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+  
+/* General Blog Container Styling */
+#blog-container {
+    max-width: 800px;
+    margin: 40px auto; /* Center the container */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: rgba(0, 0, 0, 0.5); /* Light background for readability */
+    border: 1px solid #ddd; /* Subtle border for separation */
+    border-radius: 8px; /* Smooth corners */
+}
+
+/* Individual Blog Post Styling */
+.blog-post {
+    margin-bottom: 30px; /* Space between posts */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Post Title */
+.blog-post h2 {
+    font-size: 24px;
+    color: #e5e5e5; /* Darker color for readability */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Post Metadata */
+.blog-post p strong {
+    font-size: 14px;
+    color: #e5e5e5; /* Subtle color for metadata */
+}
+
+.blog-post p {
+    margin: 8px 0;
+    color: #e5e5e5; /* Subtle gray color for regular text */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #blog-container {
+        padding: 15px;
+    }
+
+    .blog-post {
+        padding: 15px;
+    }
+
+    .blog-post h2 {
+        font-size: 20px;
+    }
+}
+  
+  .title {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+/* contact */
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Left Section */
+.left-section {
+    padding: 100px;
+    padding-left: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+.contact-info {
+    font-size: 16px;
+    color: #000; 
+}
+
+.contact-info a {
+    text-decoration: underline;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #b9b9b9;
+}
+
+/* 容器样式 */
+#weatherContainer {
+    background-color: #000000; /* 背景白色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    border-radius: 8px; /* 圆角 */
+    padding: 20px; /* 内边距 */
+    max-width: 400px; /* 最大宽度 */
+    min-width: 400px;
+    margin: 20px auto; /* 自动居中 */
+    text-align: left; /* 左对齐文本 */
+  }
+  
+  /* 标签和输入框的排版 */
+  #weatherContainer h1{
+    font-size: 65px;
+    color: white;
+  }
+  #weatherContainer label, #weatherContainer h3, #weatherContainer p  {
+    font-size: 16px;
+    color: #ffffff; 
+  }
+  
+  #weatherContainer input {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #dddddd; /* 浅灰色边框 */
+    border-radius: 4px; /* 圆角 */
+    box-sizing: border-box; /* 包括内边距 */
+  }
+  
+  /* 按钮样式 */
+  #weatherContainer button {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #000000; /* 按钮文字白色 */
+    background-color: #ffffff; /* 蓝色背景 */
+    border: none;
+    border-radius: 4px; /* 圆角 */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 背景渐变效果 */
+  }
+  
+  #weatherContainer button:hover {
+    background-color: #2c3829; 
+    color: white;
+  }
+
+/* Right Section */
+.right-section {
+    padding: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-title{
+    max-width: 450px; /* 限制表单宽度 */
+    margin: 0 auto; /* 表单居中 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-title h2{
+    align-self: center;
+    font-size: 30px;
+}
+.form-title p{
+    color: black;
+}
+/* General Form Styles */
+form {
+    width: 100%;
+    margin: 0 auto; /* 表单居中 */
+    padding: 20px; /* 添加内边距 */
+    background-color: #f8f8f8; /* 背景颜色 */
+    border: 1px solid #ddd; /* 表单边框 */
+    border-radius: 10px; /* 边框圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
+}
+
+/* Form Labels */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px; /* 调整字体大小 */
+    font-weight: bold; /* 加粗 */
+    color: #333; /* 字体颜色 */
+}
+
+/* Form Inputs and Textarea */
+form input, form textarea {
+    width: 100%; /* 输入框占满容器宽度 */
+    padding: 12px; /* 添加内边距 */
+    margin-bottom: 20px; /* 每个输入框的底部间距 */
+    border: 1px solid #ccc; /* 边框颜色 */
+    border-radius: 8px; /* 圆角边框 */
+    font-size: 14px; /* 调整字体大小 */
+    color: #000000; /* 字体颜色 */
+    background-color: #fff; /* 背景颜色 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 动画过渡 */
+}
+
+/* Focus States */
+form input:focus, form textarea:focus {
+    border-color: #000000; /* 聚焦时的边框颜色 */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* 聚焦时的阴影效果 */
+    outline: none; /* 移除默认的聚焦外边框 */
+}
+
+/* Textarea Specific Styles */
+form textarea {
+    resize: none; /* 禁止调整大小 */
+    height: 150px; /* 默认高度 */
+}
+
+/* Submit Button */
+form button.submit-btn {
+    width: 100%; /* 按钮占满容器宽度 */
+    padding: 12px;
+    font-size: 16px; /* 按钮字体大小 */
+    font-weight: bold; /* 加粗 */
+    color: #fff; /* 字体颜色 */
+    background-color: #000000; /* 按钮背景颜色 */
+    border: none; /* 无边框 */
+    border-radius: 8px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标样式 */
+    transition: background-color 0.3s ease; /* 背景颜色过渡 */
+}
+
+form button.submit-btn:hover {
+    background-color: #757575; /* 悬停时背景颜色变化 */
+}
+  
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    .contact {
+        flex-direction: row;
+    }
+
+    .left-section, .right-section {
+        margin: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact {
+        flex-direction: column;
+    }
+
+    form{
+        margin: 0 auto;
+    }
+}
+
+/* shop */
+
+.shop-image {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* 定义整体高度 */
+    margin-top: 0; /* 去掉额外间距 */
+    padding-top: 100px; /* 距离 header 的距离 */
+}
+
+#imageCarousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%; /* 限制轮播区域的宽度 */
+    max-width: 800px; /* 最大宽度限制 */
+    aspect-ratio: 16 / 9; /* 强制图片容器的比例为16:9 */
+    overflow: hidden;
+    margin-bottom: 20px; /* 与 h1 之间的间距 */
+    margin-top: 20px;
+    border-radius: 20px; /* 圆角边框 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* 图片占满容器 */
+    height: 100%; /* 图片高度与容器一致 */
+    object-fit: cover; /* 保持图片比例填充容器 */
+    border-radius: 20px; /* 图片圆角与容器一致 */
+    opacity: 0; /* 默认隐藏 */
+    transition: opacity 1s ease-in-out; /* 添加淡入淡出动画 */
+    z-index: 0;
+}
+
+.carousel-image.fade-in {
+    opacity: 1; /* 显示图片 */
+    z-index: 1; /* 确保淡入的图片在最前面 */
+}
+
+.carousel-image.fade-out {
+    opacity: 0; /* 淡出图片 */
+    z-index: 0; /* 淡出的图片移到后面 */
+}
+.main-content{
+    padding: 30px;
+    color: white;
+    font-size: 30px;
+}

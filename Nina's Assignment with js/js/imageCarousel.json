@@ -1,0 +1,14 @@
+{
+    "carouselImages": [
+        { "src": "./imageCarousel/imageCarousel6.jpg", "alt": "CO2 consumptio in comparison" },
+        { "src": "./imageCarousel/imageCarousel7.jpg", "alt": "fast fashion impact" },
+        { "src": "./imageCarousel/imageCarousel8.jpg", "alt": "CO2 consumption of a T-shirtonly in production" },
+        { "src": "./imageCarousel/imageCarousel9.jpg", "alt": "Percentage of microplastics in the water" },
+        { "src": "./imageCarousel/imageCarousel10.jpg", "alt": "New produced clothing worldwide" },
+        { "src": "./imageCarousel/imageCarousel1.jpg", "alt": "CO2 consumptio in comparison" },
+        { "src": "./imageCarousel/imageCarousel2.jpg", "alt": "fast fashion impact" },
+        { "src": "./imageCarousel/imageCarousel3.jpg", "alt": "CO2 consumption of a T-shirtonly in production" },
+        { "src": "./imageCarousel/imageCarousel4.jpg", "alt": "Percentage of microplastics in the water" },
+        { "src": "./imageCarousel/imageCarousel5.jpg", "alt": "New produced clothing worldwide" }
+    ]
+}

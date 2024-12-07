@@ -1,0 +1,16 @@
+{
+  "blogPosts": [
+      {
+          "title": "IDEATION",
+          "date": "December 4, 2024",
+          "category": "Fashion",
+          "content": "We have conceived a preliminary idea for a second-hand auction platform that differs from other platforms. In this platform, auction winners are not determined based on the bidding price, but rather by their secondary design proposals for a specific piece of clothing. The item is then given for free to the selected bidder with the winning design proposal."
+      },
+      {
+          "title": "Sustainability in Fashion",
+          "date": "August 15, 2024",
+          "category": "Fashion",
+          "content": "How sustainable practices are transforming the fashion industry. A guide for eco-conscious shoppers."
+      }
+  ]
+}
