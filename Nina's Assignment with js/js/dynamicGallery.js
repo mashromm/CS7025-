@@ -1,3 +1,4 @@
+
 export async function loadGalleryData(filePath) {
     const response = await fetch(filePath);
     if (!response.ok) {
@@ -15,16 +16,16 @@ export function generateImageGallery(containerID, images) {
     }
 
     const observerOptions = {
-        root: null, // 使用视口作为根
-        rootMargin: "0px", // 偏移量
-        threshold: 0.1 // 元素进入视口 10% 时触发
+        root: null, // Use the viewport as the root
+        rootMargin: "0px", // Offset
+        threshold: 0.1 // Trigger when 10% of the element enters the viewport
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add("fade-in"); // 添加淡入类
-                observer.unobserve(entry.target); // 停止观察
+                entry.target.classList.add("fade-in"); // Add fade-in class
+                observer.unobserve(entry.target); // Stop observing
             }
         });
     }, observerOptions);
@@ -33,10 +34,10 @@ export function generateImageGallery(containerID, images) {
         const imgElement = document.createElement('img');
         imgElement.src = image.src;
         imgElement.alt = image.alt;
-        imgElement.classList.add('gallery-image', 'observer-target'); // 添加样式类和目标类
+        imgElement.classList.add('gallery-image', 'observer-target'); // Add style class and target class
         galleryContainer.appendChild(imgElement);
 
-        // 在动态创建图片时立即添加观察
+        // Add observation immediately when dynamically creating images
         observer.observe(imgElement);
     });
 }

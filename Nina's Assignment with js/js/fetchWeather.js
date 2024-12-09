@@ -7,8 +7,8 @@ export async function fetchWeather(city) {
         if (!response.ok) {
             throw new Error('Failed to fetch weather data.');
         }
-        const data = await response.json(); // 确保这里声明并返回 data
-        console.log('Fetched weather data:', data); // 输出调试信息
+        const data = await response.json(); // Ensure to declare and return data here
+        console.log('Fetched weather data:', data); // Output debugging information
         return data;
     } catch (error) {
         console.error('Error fetching weather:', error.message);
@@ -33,7 +33,7 @@ export function displayWeather(data, containerId) {
     `;
 }
 
-// 绑定天气查询功能
+// Bind weather query feature
 export function initializeWeatherFeature() {
     const fetchButton = document.getElementById('fetchWeatherButton');
     const cityInput = document.getElementById('cityInput');
@@ -62,4 +62,3 @@ export function initializeWeatherFeature() {
         }
     });
 }
-

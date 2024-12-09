@@ -15,42 +15,42 @@ export function startImageCarousel(containerID, images) {
         return;
     }
 
-    // 动态生成图片
+    // Dynamically generate images
     images.forEach((image, index) => {
         const imgElement = document.createElement('img');
         imgElement.src = image.src;
         imgElement.alt = image.alt;
-        imgElement.classList.add('carousel-image'); // 为轮播图片指定独立的类
-        imgElement.setAttribute('data-index', index); // 设置索引
+        imgElement.classList.add('carousel-image'); // Assign a dedicated class for carousel images
+        imgElement.setAttribute('data-index', index); // Set index
         imageCarouselContainer.appendChild(imgElement);
     });
 
     const allImages = imageCarouselContainer.querySelectorAll('.carousel-image');
     let currentIndex = 0;
 
-    // 初始化：显示第一张图片
+    // Initialize: Show the first image
     allImages.forEach(img => img.classList.remove('fade-in', 'fade-out', 'visible'));
     allImages[currentIndex].classList.add('fade-in', 'visible');
 
     function showNextImage() {
-        // 当前图片淡出
+        // Fade out the current image
         allImages[currentIndex].classList.remove('fade-in');
         allImages[currentIndex].classList.add('fade-out');
 
-        // 计算下一张图片的索引
+        // Calculate the index of the next image
         const nextIndex = (currentIndex + 1) % allImages.length;
 
-        // 下一张图片淡入
+        // Fade in the next image
         allImages[nextIndex].classList.remove('fade-out');
         allImages[nextIndex].classList.add('fade-in', 'visible');
 
-        // 更新索引
+        // Update the index
         currentIndex = nextIndex;
 
-        // 1秒后显示下一张图片
+        // Show the next image after 1 second
         setTimeout(showNextImage, 1200);
     }
 
-    // 启动轮播
+    // Start the carousel
     setTimeout(showNextImage, 1000);
 }

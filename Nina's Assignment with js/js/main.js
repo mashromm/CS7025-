@@ -3,7 +3,7 @@ import { validateForm } from "./formValidation.js";
 import { loadBlogData, generateBlogPosts } from "./blogLoader.js";
 import { loadGalleryData, generateImageGallery } from './dynamicGallery.js';
 import { loadCarouselData, startImageCarousel } from './imageCarousel.js';
-import { initializeWeatherFeature} from './fetchWeather.js';
+import { initializeWeatherFeature } from './fetchWeather.js';
 
 document.addEventListener("DOMContentLoaded", function () {
     handleScrollButton();
@@ -13,13 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
     Promise.all([
         loadGalleryData('./js/gallery.json'),
         loadBlogData('./js/blogData.json'),
-        loadCarouselData('./js/imageCarousel.json') // 加载轮播数据
+        loadCarouselData('./js/imageCarousel.json') // Load carousel data
     ])
-    .then(([galleryData, blogData,carouselData]) => {
+    .then(([galleryData, blogData, carouselData]) => {
         generateBlogPosts('blog-container', blogData.blogPosts);
         generateImageGallery('gallery-container', galleryData.gallery);
-        startImageCarousel('imageCarousel-container', carouselData.carouselImages); //carouselData是变量名可随意替换，承接了整个json对象，但我只需要图片数组，所以用.carouselImages
-        
+        startImageCarousel('imageCarousel-container', carouselData.carouselImages); // carouselData is a variable name and can be replaced; it holds the entire JSON object, but I only need the images array, so I use .carouselImages
     })
     .catch(error => console.error('Error loading JSON data:', error));
 });
