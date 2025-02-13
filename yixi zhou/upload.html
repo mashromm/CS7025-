@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <script src="assets/js/upload.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="assets/css/profile-style.css"> -->
+    <link rel="stylesheet" href="assets/css/upload-style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo.png" alt="Cultura Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Discover</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="/update.html">Upload</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profile.html">Profile</a></li>
+                </ul>
+            </div>
+            <a href="#" class="text-dark fw-bold text-decoration-none">Log out <i class="bi bi-box-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Upload Section -->
+    <div class="container mt-5 d-flex justify-content-center align-items-center">
+        <div class="upload-section">
+            <!-- picture uploading -->
+            <div class="upload-box" id="uploadBox">
+                <input type="file" id="imageInput" accept="image/*" hidden>
+                <img id="previewImage" src="" alt="Preview">
+                <p id="uploadText">Choose an image or drag and drop it here</p>
+            </div>
+
+            <!-- description form -->
+            <div class="upload-form">
+                <input type="text" id="title" placeholder="Title">
+                <textarea id="description" placeholder="Description"></textarea>
+                <input type="text" id="dateCreated" placeholder="Date Created">
+                <input type="text" id="location" placeholder="Location">
+                <input type="text" id="dimensions" placeholder="Dimensions">
+                <input type="text" id="medium" placeholder="Medium">
+                <button id="uploadButton">Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-light mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 text-start">
+                    <img src="assets/img/logoIcon.png" alt="Cultura logo" class="footer-logo">
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-4">College Green, Dublin 2, Ireland</p>
+                    <p class="mb-3"><a href="tel:+11111111110" class="footer-link">(111) 111-1110</a></p>
+                    <p class="mb-2"><a href="mailto:cultura@gmail.com" class="footer-link">cultura@gmail.com</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="mb-2"><a href="index.html" class="footer-link">Home Page</a></p>
+                    <p class="mb-2"><a href="signup.html" class="footer-link">Sign Up</a></p>
+                    <p class="mb-2"><a href="login.html" class="footer-link">Log In</a></p>
+                    <br>
+                    <small>&copy; 2025 All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
