@@ -4,4 +4,4 @@ static = true
 
 # 指定启动命令
 [start]
-command = "nginx -c /app/nginx.conf"
+command = "nginx -c nginx.conf"
