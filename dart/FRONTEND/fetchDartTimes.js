@@ -4,7 +4,7 @@ async function fetchDartTime(stationElement) {
         console.log(`Fetching DART time for ${stationName}...`);
 
         const encodedStation = encodeURIComponent(stationName);
-        const response = await fetch(`http://localhost:5000/dart-time?station=${encodedStation}`);
+        const response = await fetch(`https://cs7025-production.up.railway.app/dart-time?station=${encodedStation}`);
 
         if (!response.ok) {
             throw new Error("Failed to fetch DART time");
