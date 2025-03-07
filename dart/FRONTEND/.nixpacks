@@ -3,3 +3,5 @@ static = true
 
 [start]
 command = "nginx -c /app/nginx.conf"
+[static]
+include = ["nginx.conf"]
