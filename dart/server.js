@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+    res.send("Server is running!");
+});
+
 // MySQL Database Connection
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'dart.cbs4skg46h4c.eu-north-1.rds.amazonaws.com',
