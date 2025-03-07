@@ -34,7 +34,7 @@ async function submitFeedback(event) {
 
     try {
         // 发送数据到后端
-        const response = await fetch("http://localhost:5000/feedback", {
+        const response = await fetch("https://cs7025-production.up.railway.app/feedback?station=${encodedStation}", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(requestBody)
@@ -107,7 +107,7 @@ function uploadImage(imageId) {
         formData.append("imageId", imageId); // 可选，用来区分不同上传框
 
         try {
-            const response = await fetch("http://localhost:5000/upload", {
+            const response = await fetch("https://cs7025-production.up.railway.app/upload", {
                 method: "POST",
                 body: formData
             });
