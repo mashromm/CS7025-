@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node dart/server.js"
   },
   "dependencies": {
     "axios": "^1.8.1",
