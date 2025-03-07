@@ -4,7 +4,7 @@ async function fetchFeedbackReports(stationElement) {
         console.log(`Fetching reports for ${stationName}...`);
 
         const encodedStation = encodeURIComponent(stationName);
-        const response = await fetch(`http://localhost:5000/feedback?station=${encodedStation}`);
+        const response = await fetch(`https://cs7025-production.up.railway.app/feedback?station=${encodedStation}`);
 
         if (!response.ok) {
             throw new Error("Failed to fetch reports");
