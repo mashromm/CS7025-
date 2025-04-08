@@ -1,11 +1,10 @@
-import express from 'express';
-import axios from 'axios';
-import pkg from 'pg';
-import cors from 'cors';
-import dotenv from 'dotenv';
+const express = require('express');
+const axios = require('axios');
+const { Pool } = require('pg');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
 dotenv.config();
-const { Pool } = pkg;
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,15 +12,17 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-// PostgreSQL connection
+// PostgreSQL Connection Pool
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  host: process.env.PGHOST || 'postgres.railway.internal',
+  user: process.env.PGUSER || 'postgres',
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE || 'railway',
+  port: process.env.PGPORT || 5432,
+  ssl: process.env.PGSSL === 'true' ? { rejectUnauthorized: false } : false
 });
 
-// Get DART time (proxy to Irish Rail API)
+// GET train time from Irish Rail API
 app.get('/dart-time', async (req, res) => {
   try {
     const stationName = req.query.station;
@@ -31,8 +32,8 @@ app.get('/dart-time', async (req, res) => {
 
     const encodedStation = encodeURIComponent(stationName);
     const apiUrl = `http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${encodedStation}`;
-    const response = await axios.get(apiUrl, { responseType: 'text' });
 
+    const response = await axios.get(apiUrl, { responseType: 'text' });
     res.set("Access-Control-Allow-Origin", "*");
     res.send(response.data);
   } catch (error) {
@@ -41,28 +42,26 @@ app.get('/dart-time', async (req, res) => {
   }
 });
 
-// Get feedback (all or filtered by station)
+// GET feedback (optionally filter by station)
 app.get('/feedback', async (req, res) => {
   try {
     const station = req.query.station;
+    let query = 'SELECT * FROM feedback ORDER BY created_at DESC';
+    let values = [];
+
     if (station) {
-      const { rows } = await pool.query(
-        'SELECT * FROM feedback WHERE station_name = $1 ORDER BY created_at DESC',
-        [station]
-      );
-      res.json(rows);
-    } else {
-      const { rows } = await pool.query(
-        'SELECT * FROM feedback ORDER BY created_at DESC'
-      );
-      res.json(rows);
+      query = 'SELECT * FROM feedback WHERE station_name = $1 ORDER BY created_at DESC';
+      values = [station];
     }
+
+    const result = await pool.query(query, values);
+    res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Submit feedback
+// POST feedback submission
 app.post('/feedback', async (req, res) => {
   const { station_name, category, description } = req.body;
 
@@ -72,31 +71,34 @@ app.post('/feedback', async (req, res) => {
 
   try {
     const result = await pool.query(
-      `INSERT INTO feedback (station_name, category, description, status, created_at)
-       VALUES ($1, $2, $3, 'Pending', NOW())`,
+      "INSERT INTO feedback (station_name, category, description, status, created_at) VALUES ($1, $2, $3, 'Pending', NOW()) RETURNING *",
       [station_name, category, description]
     );
-    res.json({ message: "Feedback submitted successfully" });
-  } catch (error) {
-    console.error("Database error:", error.message);
+
+    res.json({ message: "Feedback submitted successfully", feedback: result.rows[0] });
+  } catch (err) {
+    console.error("Error inserting feedback:", err.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-// Update feedback status
+// PUT feedback status update
 app.put('/feedback/:id', async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
+
   try {
-    await pool.query(
-      'UPDATE feedback SET status = $1 WHERE id = $2',
+    const result = await pool.query(
+      "UPDATE feedback SET status = $1 WHERE id = $2 RETURNING *",
       [status, id]
     );
-    res.json({ id, status });
+
+    res.json(result.rows[0]);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// Start server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
